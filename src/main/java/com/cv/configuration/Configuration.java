@@ -1,4 +1,4 @@
-package com.resources.configuration;
+package com.cv.configuration;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.MongoDatabaseFactory;

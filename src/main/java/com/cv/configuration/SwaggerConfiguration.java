@@ -1,4 +1,4 @@
-package com.resources.configuration;
+package com.cv.configuration;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
