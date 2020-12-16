@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface CVService {
 	CreateCVResponse createStory(CVDTO story);
-	CVDTO getStories();
+	CVDTO getStories(String id);
 	void deleteStory(String id);
   	CVDTO updateStory(CVDTO request, String id);
 }

@@ -34,11 +34,11 @@ public class CVController {
 		this.CVService = CVService;
 	}
 
-	@GetMapping(value="/cv", produces="application/json")
+	@GetMapping(value="/cv/{id}", produces="application/json")
 	@ResponseStatus(value = HttpStatus.OK)
-	public CVDTO getAllStories(){
+	public CVDTO getAllStories(@PathVariable String id){
 		log.info("Calling Get Operation");
-		return CVService.getStories();
+		return CVService.getStories(id);
 	}//END GET
    
 	@PostMapping(value = "/cv")

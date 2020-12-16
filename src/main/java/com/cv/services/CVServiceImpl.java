@@ -37,10 +37,15 @@ public class CVServiceImpl implements CVService {
 	}//END createStory
 
 	@Override
-	public CVDTO getStories() {
+	public CVDTO getStories(String id) {
 
 		List<CVModel> CVList = CVRepository.findAll();
-		CVDTO response = mapper.map(CVList.get(0), CVDTO.class);
+		CVModel CV = new CVModel();
+		for(int i = 0; i < CVList.size(); i ++) {
+			if (CVList.get(i).getId().toString().equalsIgnoreCase(id))
+				CV = CVList.get(i);
+		}
+		CVDTO response = mapper.map(CV, CVDTO.class);
 		log.info("Consulted successfully on mongoDB");
 		return response;
 	}//END getStories
