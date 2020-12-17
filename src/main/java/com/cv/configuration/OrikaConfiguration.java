@@ -24,9 +24,25 @@ public class OrikaConfiguration extends ConfigurableMapper {
 
     public MapperFactory mapperFactoryClass(MapperFactory mapperFactory){
 
+        ConverterFactory converterFactory = mapperFactory.getConverterFactory();
+        converterFactory.registerConverter(new DateConverter());
         mapperFactory.classMap(CVModel.class, CVDTO.class).byDefault().register();
         mapperFactory.classMap(CVDTO.class, CVModel.class).byDefault().register();
 
         return mapperFactory;
+    }
+
+    public class DateConverter extends BidirectionalConverter<Date,String> {
+
+        @Override
+        public String convertTo(Date date, Type<String> type, MappingContext mappingContext) {
+            return new SimpleDateFormat("dd-MM-yyyy").format(date);
+        }
+
+        @SneakyThrows
+        @Override
+        public Date convertFrom(String s, Type<Date> type, MappingContext mappingContext) {
+            return new SimpleDateFormat("dd-MM-yyyy").parse(s);
+        }
     }
 }

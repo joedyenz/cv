@@ -1,5 +1,6 @@
 package com.cv.domain;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.Getter;
 
@@ -7,9 +8,13 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import lombok.NoArgsConstructor;
 import org.bson.types.ObjectId;
 
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class CVDTO {
 
 	private String id;
